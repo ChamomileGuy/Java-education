@@ -50,6 +50,19 @@ public class Flat {
     public String toString(){
         return "Кв. площадью " + flatSquare + " с " + roomCount + " комн.";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Flat flat = (Flat) o;
+        return Double.compare(flatSquare, flat.flatSquare) == 0 && roomCount == flat.roomCount;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(flatSquare, roomCount);
+    }
 }
 
 
